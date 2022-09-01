@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //object{}
+        let student ={
+            name: "Juyoung Kim",
+            major : "IT Engineering"
+        }
+
+        let phone = {
+            name: "iPhoneX",
+            company: "Apple"
+        }
+
+        console.log(student);
+
+        // .으로 접근하는 방법과 []로 접근하는 방법
+        console.log(student.major);
+        console.log(student["major"]);
+
+        //array[]
+
+        let students =[
+            {name: "Juyoung Kim", major : "IT Engineering"},
+            {name: " Kim", major : "IT "},
+            {name: "Juyoung ", major : " Engineering"}
+        ];
+
+        students.push ({name: "Kimmy", major : "IT Engineeri"});
+        console.log(students);
+
+        console.log(students[2].name);
+
+        // 배열에서 삭제를 어떻게 할 것인지?
+
+        // 배열의 순회
+        // #1. 일반적인 순회
+        for (let i=0; i<students.length; i++) {
+            console.log(students[i].major);
+        }
+
+        // #2. forEach 순회
+        students.forEach (s => console.log(s.name));
+
+    </script>
+</body>
+</html>

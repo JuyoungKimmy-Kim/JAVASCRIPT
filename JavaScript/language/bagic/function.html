@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // #1. normal
+        function add_1 (a,b) {
+            return a+b;
+        }
+
+        // #2. variable (anonymous)
+        var add_2=function (a,b) {
+            return a+b;
+        }
+
+        // #3. new 
+        var add_3=new Function ('a', 'b', 'return a+b');
+
+        console.log(add_1 (10,20));
+        console.log(add_2 (10,20));
+        console.log(add_3 (10,20));
+
+        // function parameter, return type , variable 할당 <= 일급객체
+
+
+        // #4. callback
+        // as parameter : 파라미터로 변수 처리
+        function add_4 (a,b, func) {
+            let ret=func (a,b);
+            return ret;
+        }
+
+        console.log(add_4 (20,40, add_2));
+
+
+        // #5. return type
+        // as return type
+        function myFunc () {
+            const add_5= function(a,b) {
+                return a+b;
+            }
+            return add_5;
+        }
+
+        const add_param=myFunc();
+        console.log(add_param (30, 100));
+
+
+    </script>
+</body>
+</html>

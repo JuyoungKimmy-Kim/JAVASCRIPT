@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //var , let, const
+
+        //global scope
+        //var a=5;
+        const c=100;
+
+        let b=10;
+        {
+
+            console.log(b); // => 오류발생
+
+            //새로운 scope에서 선언
+            let b=20;
+            console.log(b); // => 20 
+
+
+            //언제든지 기존에 있는 게 있어도 재선언 가능
+            var a=10;
+            console.log(a);s
+        }
+
+        console.log(a);
+    </script>
+</body>
+</html>

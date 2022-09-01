@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a;
+        console.log(a);
+
+        // 일반 변수로 type을 체크할 때
+        if (a===undefined) console.log ("a is undefined 1");  //--> O
+        if (a==="undefiend") console.log("a is undefiend 2"); //--> X
+
+        console.warn("---");
+
+        // typeof로 type을 체크할 때
+        // typeof가 문자열을 리턴하기 때문에 문자열로 비교해야 함
+        console.log (typeof a);
+        if (typeof a === undefined) console.log("a is undefined 1 ");   // -->X
+        if (typeof a ==="undefined") console.log("a is undefined 2 ");  // -->O
+    </script>
+</body>
+</html>
