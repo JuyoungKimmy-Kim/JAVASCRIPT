@@ -1,68 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
+  </head>
+  <body>
     <script>
+      //normal function
+      function print(a) {
+        console.log(a);
+      }
 
-        //normal function
-        function print (a) {
-            console.log(a);
-        }
+      print(0);
+      print("normal");
 
-        print (0);
-        print ("normal");
+      // #1. arrow1
+      var print = (a) => console.log(a);
+      print(1);
+      print("arrow 1");
 
-        // #1. arrow1
-        var print = (a) => console.log(a);
-        print(1);
-        print("arrow 1");
+      // #2. arrow2
+      var print = (a) => {
+        console.log(a);
+        console.log(a);
+      };
 
-        // #2. arrow2
-        var print = (a) => {
-            console.log(a);
-            console.log(a);
-        }
+      print(2);
+      print("arrow 2");
 
-        print(2);
-        print("arrow 2");
+      // #3. arrow 3
+      var print = (a) => console.log(a);
 
-        // #3. arrow 3
-        var print=a=>console.log(a);
+      //#4. arrow 4
+      var print = () => console.log("arrow function");
+      print();
 
-        //#4. arrow 4
-        var print = () => console.log("arrow function");
-        print();
+      // #5. arrow 5 -> ramda 랑 비슷 -> functional programming에 기반
+      var add = (a, b) => a + b;
+      console.log(add(4, 7));
 
-        // #5. arrow 5 -> ramda 랑 비슷 -> functional programming에 기반
-        var add = (a,b) => a+b;
-        console.log(add (4,7));
+      // this !!!  {} => 객체의 멤버를 만듦
+      // 객체의 멤버 안에 function이 들어갈 수 있다!
+      const obj = {
+        num: 5,
 
-        // this !!!  {} => 객체의 멤버를 만듦
-        // 객체의 멤버 안에 function이 들어갈 수 있다!
-        const obj= {
-            num: 5, 
-            // print : function () {
-            //     console.log(this.num);
-
-            // }
-
-            // undefined가 출력됨
-            print : () => {
-                console.log(this.num);
-                console.log(this); // => 최상위 window 객체가 나옴
-            }
-
-        }
-        console.log(obj.num);
-        obj.print();
-        
-
+        print: () => {
+          console.log(this.num); // undefined가 출력됨
+          console.log(this); // => 최상위 window 객체가 나옴
+        },
+      };
+      
+      console.log(obj.num);
+      obj.print();
     </script>
-</body>
+  </body>
 </html>

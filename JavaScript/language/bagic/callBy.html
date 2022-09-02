@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //================ num
+      var num = 10;
+      console.log(num); //10
+
+      // Function Hoisting (아래에서 생성했지만 위에서 호출 가능)
+      changeNum(num);
+      console.log(num); //10
+      function changeNum(num) {
+        num = 20;
+      }
+
+      //================ String
+      var str = "JUYOUNG";
+      console.log(str); //JUYOUNG
+      changeStr(str);
+      console.log(str); //JUYOUNG
+      function changeStr(str) {
+        str = "KIM";
+      }
+
+      //================ Object
+      var car = { name: "Hyundai" };
+      console.log(car);
+
+      changeObj(car);
+      console.log(car); //Volvo
+
+      changeName(car);
+      console.log(car); //KIA
+
+      function changeObj(obj) {
+        obj = { name: "Volvo" };
+      }
+
+      // 이 경우에만 바뀜
+      function changeName(obj) {
+        obj.name = "KIA";
+      }
+
+      //================ Array
+      var nums = [1, 2, 3, 4];
+      console.log(nums); //1 2 3 4
+      changeFirst(nums); //9 2 3 4
+      console.log(nums);
+
+      function changeFirst(array) {
+        array[0] = 9;
+      }
+
+      // ** ===> 배열, Object 형으로 넘겼을 경우 변경
+    </script>
+  </body>
+</html>

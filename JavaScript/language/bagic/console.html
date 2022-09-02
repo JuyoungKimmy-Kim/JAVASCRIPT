@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="first">
+      <div id="second">div</div>
+    </div>
+
+    <script>
+      /*
+    log를 사용할 때 주의 사항
+    */
+
+      let obj = { num: 5 };
+      console.log(obj);
+      console.log(obj.num); //변하지 않음 ==> 해당 property를 직접 출력한 경우
+      console.log(JSON.parse(JSON.stringify(obj)));
+      console.dir(obj);
+
+      // Thread 에서 Sleep 과 같은 기능
+      // function, time
+      // Arrow Function 형태로 5초뒤에 obj의 값을 10으로 바꾸는 기능
+      setTimeout(() => (obj.num = 10), 5000);
+
+      //==================================================
+      document.querySelector("#first").onclick = () => alert("first");
+      console.log(document.querySelector("#first")); // HTML 구조
+      console.dir(document.querySelector("#first")); // JSON 구조
+    </script>
+  </body>
+</html>

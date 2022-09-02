@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container">
+      <form id="loginForm" action="">
+        <input id="domain" type="hidden" value="abc" />
+        <label for="userId">아이디</label><br />
+        <input id="userId" type="text" /><br />
+        <label for="password">패스워드</label><br />
+        <input id="password" type="password" /><br />
+      </form>
+      <br />
+      <input id="btnLogin" type="button" value="로그인" />
+      <hr />
+      <form id="registerForm" action="">
+        <label for="userName">이름</label><br />
+        <input id="userName" type="text" /><br />
+        <label for="userEmail">e-mail</label><br />
+        <input id="userEmail" type="email" /><br />
+
+        <label>성별</label><br />
+        <input id="male" type="radio" name="gender" value="M" /><label
+          for="male"
+          >남</label
+        >
+        <input id="female" type="radio" name="gender" value="F" checked /><label
+          for="female"
+          >여</label
+        ><br />
+
+        <label>취미</label><br />
+        <input id="movie" type="checkbox" name="hobby" value="movie" />
+        <label for="movie">영화</label>
+        <input id="sport" type="checkbox" name="hobby" value="sport" checked />
+        <label for="sport">스포츠</label>
+        <input id="mung" type="checkbox" name="hobby" value="mung" />
+        <label for="mung">멍때리기</label>
+        <br />
+        <label for="major">전공</label>
+        <select name="major" id="major" multiple>
+          <!--복수 선택이 가능-->
+          <!-- multiple -->
+          <option value="CS">Computer Science</option>
+          <option value="HI" selected>History</option>
+          <option id="KL" value="KL">Korean Language</option>
+        </select>
+        <br />
+        <label for="desc">기타</label><br />
+        <textarea name="desc" id="desc" cols="30" rows="10"></textarea>
+      </form>
+      <br />
+      <input id="btnRegister" type="button" value="가입하기" />
+      <hr />
+      <form id="searchForm" action="">
+        <label for="searchWord">검색어</label>
+        <input id="searchWord" type="text" />
+        <input id="btnSearch" type="button" value="검색" />
+      </form>
+    </div>
+
+    <script>
+      window.onload = function () {
+        document.querySelector("#btnLogin").onclick = function () {
+          console.log(document.querySelector("#domain").value);
+          console.log(document.querySelector("#userId").value);
+          console.log(document.querySelector("#password").value);
+        };
+
+        document.querySelector("#btnRegister").onclick = function () {
+          console.log(document.querySelector("#userName").value);
+          console.log(document.querySelector("#userEmail").value);
+
+          console.log("----radio-----");
+
+          // Female or Male
+          // 여러 개의 radio 중에 현재 선택된 radio를 가져오고 싶을 때
+          console.log(
+            document.querySelector("input[name='gender']:checked").value
+          );
+
+          // 특정 라디오 버튼이 선택되었는지 확인 (female이 선택되었는지 확인)
+          if (document.querySelector("#female").checked)
+            console.log("female is checked!");
+
+          //checkbox ==> 여러 개 ==> querySelectorAll
+          console.log("----checkbox-----");
+          document
+            .querySelectorAll("input[name='hobby']:checked")
+            .forEach((el) => console.log(el.value));
+
+          if (document.querySelector("#movie").checked)
+            console.log("movie is checked!");
+
+          console.log("----select-----");
+          document
+            .querySelectorAll("#major option:checked")
+            .forEach((el) => console.log(el.value));
+          // 만약 major을 1개 선택할 수 있다면 (multiple X) -> querySelector 사용
+
+          console.dir(document.querySelector("#KL")); //==> checked 실패 후, dir로 확인 --> selected 사용
+
+          if (document.querySelector("#KL").selected)
+            console.log("KL is selected!");
+
+          console.log("----text area-----");
+          console.log(document.querySelector("#desc").value);
+        };
+
+        //search
+        console.log("----search-----");
+        document.querySelector("#btnSearch").onclick = function () {
+          console.log(document.querySelector("#searchWord").value);
+        };
+
+        //key event enter-key
+        console.log("----key event enter-key -----");
+        document.querySelector("#searchWord").onkeydown = function (e) {
+          console.log(e.keyCode);
+
+          if (e.keyCode == 13) {
+            console.log(this.value);
+            e.preventDefault(); //Enter Key일 때 자동으로 전송하는 부분을 막아줌
+          }
+        };
+
+        console.log("----search word----");
+        document.querySelector("#searchWord").onkeydown = (e) => {
+          console.log(e.keyCode);
+          if (e.keyCode == 13) {
+            console.log(e.target.value);
+            e.preventDefault();
+          }
+        };
+      };
+    </script>
+  </body>
+</html>
