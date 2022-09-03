@@ -65,30 +65,94 @@
     </div>
 
     <script>
-      window.onload = function () {
-        document.querySelector("#btnLogin").onclick = function () {
+      window.onload=function () {
+
+        
+        // #1. 로그인 버튼(btnLogin)을 눌렀을 때 console 출력
+        document.querySelector("#btnLogin").onclick=function () {
+          console.log("=======Login=======");
+
           console.log(document.querySelector("#domain").value);
           console.log(document.querySelector("#userId").value);
           console.log(document.querySelector("#password").value);
         };
 
-        document.querySelector("#btnRegister").onclick = function () {
-          console.log(document.querySelector("#userName"));
-          console.log(document.querySelector("#userEmail"));
+        
+        // #2. 가입하기 버튼 (btnRegister)을 눌렀을 때 console 출력
+        document.querySelector("#btnRegister").onclick=function () {
+          console.log("=======Register=======");
 
-          console.log("----radio----");
-          //checked된 gender 선택
-          console.log(
-            document.querySelector("input[name='gender']:chekced").value
-          );
+          console.log(document.querySelector("#userName").value);
+          console.log(document.querySelector("#userEmail").value);
 
-          if (document.querySelector("#female").checked)
-            console.log("female is checked");
+          console.log("=======radio check=======");
+          // #3. Radio check
+          // #3-1. 여러 개의 radio 중에 현재 선택된 radio를 가져오고 싶을 때
+          console.log(document.querySelector("input[name='gender']:checked").value);
 
+          // #3-2. 특정 radio button (female)이 선택되었는지 확인
+          if (document.querySelector("#female").checked) {
+            console.log("female is checked!");
+          }
+
+          console.log("=======check box=======");
+          // #4. checkbox 
+          // #4-1. 선택된 hobby모두 출력
           document
-            .querySelectorAll("input[name='hobby']:checked")
-            .forEach((el) => console.log(el.value));
+              .querySelectorAll("input[name='hobby']:checked")
+              .forEach((el) => console.log(el.value));
+
+          // #4-2. 특정 check box (movie)가 선택되었을 때 
+          if (document.querySelector("#movie").checked) {
+            console.log ("movie is selected!");
+          }
+
+          console.log("=======select=======");
+          // #5. select
+          // #5-1. 선택된 항목 모두 출력
+          document.querySelectorAll ("#major option:checked")
+          .forEach((el)=> console.log(el.value));
+
+          // // #5-2. 특정 항목이 선택되었는지 확인
+          // if (document.querySelector("KL").checked) {
+          //   console.log("KL is selected!");
+          // }
+
+          //console.dir (document.querySelector("#KL"));
+
+          if (document.querySelector("#KL").selected) {
+            console.log("KL is selected!");
+          }
+
         };
+
+
+        document.querySelector("#btnSearch").onclick=function () {
+          console.log("=======search=======");
+          console.log(document.querySelector("#searchWord").value);
+        }
+        //key event enter-key
+        
+        // document.querySelector("#searchWord").onkeydown = function (e) {
+        //   console.log("=======key event=======");
+        //   console.log(e.keyCode);
+
+        //   if (e.keyCode == 13) {
+        //     console.log(this.value);
+        //     e.preventDefault(); //Enter Key일 때 자동으로 전송하는 부분을 막아줌
+        //   }
+        // };
+
+        document.querySelector("#searchWord").onkeydown = (e) => {
+          console.log("=======key event=======");
+          
+          console.log(e.keyCode);
+          if (e.keyCode == 13) {
+            console.log(e.target.value);
+            e.preventDefault();
+          }
+        };
+
       };
     </script>
   </body>
