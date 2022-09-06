@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        let data=[1,2,3];
+
+        // Promise 기반 function 
+
+        function getData() {
+          
+            /*
+            비동기 작업이 성공하면 resolve
+            비동기 작업이 실패하면 reject
+            */
+
+           return new Promise( (resolve, reject) => {
+
+            setTimeout( () => {
+                data.push(4);
+                data.push(5);
+
+                console.log("Done!");
+                
+                const error=true;
+                if (!error) resolve();
+                else reject('Error!');
+
+            }, 1000);
+           });
+        }
+
+        function printData() {
+            data.forEach(el => console.log(el));
+        }
+
+        doIt();
+
+        // async function doIt () {
+        //     await getData();  //promise 기반 비동기 function -> 이게 끝나면 다음 라인 수행
+        //     printData();
+        // }
+
+        async function doIt () {
+            try {
+                await getData();  //promise 기반 비동기 function -> 이게 끝나면 다음 라인 수행
+                printData();
+            } catch (e) {
+                console.log(e);
+            }
+            
+            printData();
+        }
+
+    </script>
+
+
+
+</body>
+</html>

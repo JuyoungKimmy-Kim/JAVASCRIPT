@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //let data=[1,2,3];
+
+        // function getData() {
+        //     // #1. 비동기 작업 수행
+        //     //setTimeout(function, 시간)
+
+        //     //getData를 호출하면, setTimeout 호출에 의해 1초 후에 데이터 push (예약코드 수행)
+        //     setTimeout( () => {
+        //         data.push(4);
+        //         data.push(5);
+
+        //         console.log("done!");
+        //         printData();
+        //     }, 1000);
+
+
+        // }
+
+        // function printData() {
+        //     data.forEach(el => console.log(el));
+        // }
+
+        // getData();
+        // printData();
+
+
+
+        //#2. callback 작업
+
+        let data=[1,2,3];
+
+        function getData( callback ) {
+          
+            // setTimeout 작업이 모두 끝나고 나면 callback을 수행
+
+            setTimeout( () => {
+                data.push(4);
+                data.push(5);
+
+                console.log("done!");
+                callback ();
+
+            }, 1000);
+        }
+
+        function printData() {
+            data.forEach(el => console.log(el));
+        }
+
+        getData(printData);
+
+    </script>
+
+
+
+</body>
+</html>
