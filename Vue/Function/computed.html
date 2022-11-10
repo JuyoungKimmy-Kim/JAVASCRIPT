@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>    <title>Document</title>
+</head>
+<body>
+
+    <!-- computed를 {{}} 안에서 사용하면 () 을 사용하지 않고 호출-->
+    <!-- 대상이 되는 property의 값이 변경되면 1회 호출, 반복 사용됨, 반복 사용되어도 1회 호출 이외에 호출 X-->
+    <!-- update되면 1회 호출-->
+    <div id="app"> 
+        <div> {{ text }}</div>
+        <div> {{ reversedText }}</div>
+        <div> {{ reversedText }}</div>
+        <div> {{ reversedText }}</div>
+
+        <button @click="changeText">Click</button>
+    </div>
+
+    <script>
+
+        const vue= new Vue ({
+            el: "#app",
+            data: function () {
+
+                return {
+                    text:'안녕하세요, Vue'
+                }
+            },
+
+            computed : {
+                reversedText : function () {
+                    console.log("reversedText!!!");
+                    return this.text.split('').reverse().join('');
+                },
+            },
+            methods : {
+                changeText () {
+                    this.text='Hello, Vue';
+                }
+            },
+            
+
+        });
+    </script>
+
+      
+</body>
+</html>

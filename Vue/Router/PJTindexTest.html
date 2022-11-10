@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.5.3/dist/vue-router.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h4> FindHouses </h4>
+        <header>
+            <router-link to="/home">Home</router-link>
+            <router-link to="/listing">Listing</router-link>
+            <router-link to="/property">Property</router-link>
+            <router-link to="/pages">Pages</router-link>
+            <router-link to="/blog">Blog</router-link>
+            <router-link to="/contact">Contact</router-link>
+        </header>
+        <router-view></router-view>
+
+
+    </div>
+
+    <script>
+
+        // javascript object
+        const HomeComponent = { template : `<div>Home</div>`} // 실제로 컴포넌트가 커짐 --> 별도의 파일로 뺌
+        const ListingComponent = {template : `<div>Listing</div>`}
+        const PropertyComponent ={template : `<div>Property</div>`}
+        const PagesComponent ={template : `<div>Pages</div>`}
+        const BlogComponent ={template : `<div>Blog</div>`}
+        const ContactComponent ={template : `<div>Contact</div>`}
+
+        // javascript array
+        const routes =[ 
+            { path : '/home', component : HomeComponent}, 
+            { path : '/listing', component : ListingComponent},
+            { path : '/property', component : PropertyComponent},
+            { path : '/pages', component : PagesComponent},
+            { path : '/blog', component : BlogComponent},
+            { path : '/contact', component : ContactComponent}
+        ];
+
+        // VueRouter 객체 생성
+        const router =new VueRouter({
+            routes //shortand property
+        });
+
+
+        new Vue({
+            el: '#app',
+            router // shortand property
+        });
+    </script>
+</body>
+</html>
